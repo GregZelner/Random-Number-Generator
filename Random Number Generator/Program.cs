@@ -14,8 +14,8 @@ namespace Random_Number_Generator
             //Console.WriteLine(RandomNumber);
 
             Console.WriteLine("Hello World".Length);
-            string x= Console.ReadLine();
-            Console.WriteLine(x.Length);
+            string UserInput= Console.ReadLine();
+            Console.WriteLine(UserInput.Length);
 
         }
     }
