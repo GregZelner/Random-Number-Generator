@@ -26,30 +26,50 @@ namespace Random_Number_Generator
             Console.WriteLine("String is a numeric representation: " + Result);
            
             //Code below will be for what I want to tell the user if they are correct
-            if (InputsNumericValue == x);
+            if (InputsNumericValue == x)
                 {
                 Console.WriteLine($"The world is ending in {x} days!");
                 Console.WriteLine("If it's any consolation you guessed correctly!");
-
+                
             }
+
+            Console.WriteLine("We have only {0} days left to Armegeddon", x);
+            Console.WriteLine($"ONLY {x} days and you guessed {UserInput} which is wrong");
+            Console.WriteLine("Quit Wasting time and Guess Again!");
 
             //Code below will be for what I want to tell the user if they are wrong
-            while (InputsNumericValue != x);
+
+            bool Result2;
+            int InputsNumericValue2=0;
+            int Counter = 0;
+            while (InputsNumericValue2 != x && Counter<5 )
                 {
-                Console.WriteLine("We have only {0} days left to Armegeddon", x);
-                Console.WriteLine($"ONLY {x} days and you guessed {UserInput} which is wrong");
-                Console.WriteLine("Quit Wasting time and Guess Again!");
+               
                 String UserInput2 = Console.ReadLine();
-
-                bool Result2;
-                int InputsNumericValue2;
-
-                Result2 = int.TryParse(UserInput, out InputsNumericValue2);
+            //Code below trys to convert users 2nd guess to an integer                
+                Result2 = int.TryParse(UserInput2, out InputsNumericValue2);
                 Console.WriteLine("String is a numeric representation: " + Result2);
+                Console.WriteLine("We have only {0} days left to Armegeddon", x);
+                Console.WriteLine($"ONLY {x} days and you guessed {UserInput2} which is wrong");
+                Console.WriteLine("Quit Wasting time and Guess Again!");
+                Counter++;
             }
-            int variablefornumberoftimesloopran= 5;
-            Console.WriteLine("You finally guessed correctly");
-            Console.WriteLine($"It only took you {variablefornumberoftimesloopran} tries so I guess you're not that dumb");
+            
+            if(InputsNumericValue2 == x)
+                 { 
+            int variablefornumberoftimesloopran = Counter + 1;
+                Console.WriteLine("You finally guessed correctly");
+                Console.WriteLine($"It only took you {variablefornumberoftimesloopran} tries");
+                Console.WriteLine("Congratulations!, you're not a complete moron");
+            }
+            if(Counter == 5) 
+                 {
+                Console.WriteLine("I regret to inform you but you have failed");
+                Console.WriteLine("Fortunately, the world does not depend on you");
+                Console.WriteLine("Because YOU are an idiot!!!!");
+
+            }
+
 
             //Random stuff below/
             //Console.WriteLine("Hello World".Length);
