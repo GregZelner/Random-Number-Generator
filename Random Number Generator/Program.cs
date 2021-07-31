@@ -70,7 +70,11 @@ namespace Random_Number_Generator
 
             }
 
-
+            // Project completed but can be improved...
+            // with condition statement if(guess<random#x) do... if(guess>random#x) do...
+            // I would also like to add space between lines for better User Experience.
+           
+            
             //Random stuff below/
             //Console.WriteLine("Hello World".Length);
             //string UserInput2= Console.ReadLine();
