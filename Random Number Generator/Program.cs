@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Random_Number_Generator
+namespace Guessing_Game
 {
     class Program
     {
