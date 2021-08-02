@@ -5,9 +5,9 @@ namespace Guessing_Game
     class Program
     {
         static void Main(string[] args)
-        {          
-            Random RandomNumber = new Random();
-            int x = RandomNumber.Next(0, 100);
+        {
+            Random Rng = new Random();
+            int RandomNumber = Rng.Next(0, 100);
 
             Console.WriteLine("Can you guess How many days we have left?");
             String UserInput = Console.ReadLine();
@@ -22,34 +22,41 @@ namespace Guessing_Game
             Console.WriteLine("String is a numeric representation: " + Result);
 
             //Code below will be for what I want to tell the user if they are correct
-            if (InputsNumericValue == x)
+            if (InputsNumericValue == RandomNumber)
             {
-                Console.WriteLine($"The world is ending in {x} days!");
+                Console.WriteLine($"The world is ending in {RandomNumber} days!");
                 Console.WriteLine("If it's any consolation you guessed correctly!");
             }
-
-            Console.WriteLine("We have only {0} days left to Armegeddon", x);
-            Console.WriteLine($"ONLY {x} days and you guessed {UserInput} which is wrong");
-            Console.WriteLine("Quit Wasting time and Guess Again!");
+            else
+            {
+                Console.WriteLine("We have only {0} days left to Armegeddon", RandomNumber);
+                Console.WriteLine($"ONLY {RandomNumber} days and you guessed {UserInput} which is wrong");
+                Console.WriteLine("Quit Wasting time and Guess Again!");
+            }
 
             //Code below will be for what I want to tell the user if they are wrong
 
             bool Result2;
             int InputsNumericValue2 = 0;
             int Counter = 0;
-            while (InputsNumericValue2 != x && Counter < 5)
+            while (InputsNumericValue2 != RandomNumber && Counter < 5)  //remove the win check from here
             {
                 String UserInput2 = Console.ReadLine();
                 //Code below trys to convert users 2nd guess to an integer                
                 Result2 = int.TryParse(UserInput2, out InputsNumericValue2);
                 Console.WriteLine("String is a numeric representation: " + Result2);
-                Console.WriteLine("We have only {0} days left to Armegeddon", x);
-                Console.WriteLine($"ONLY {x} days and you guessed {UserInput2} which is wrong");
+                Console.WriteLine("We have only {0} days left to Armegeddon", RandomNumber);
+                //if correct guess, congratulate and break loop
+
+                //if too high, else if too low
+
+                Console.WriteLine($"ONLY {RandomNumber} days and you guessed {UserInput2} which is wrong");
                 Console.WriteLine("Quit Wasting time and Guess Again!");
+
                 Counter++;
             }
 
-            if (InputsNumericValue2 == x)
+            if (InputsNumericValue2 == RandomNumber)
             {
                 int variablefornumberoftimesloopran = Counter + 1;
                 Console.WriteLine("You finally guessed correctly");
