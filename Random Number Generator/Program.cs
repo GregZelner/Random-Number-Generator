@@ -5,9 +5,7 @@ namespace Random_Number_Generator
     class Program
     {
         static void Main(string[] args)
-        {
-
-
+        {          
             Random RandomNumber = new Random();
             int x = RandomNumber.Next(0, 100);
 
@@ -28,7 +26,6 @@ namespace Random_Number_Generator
             {
                 Console.WriteLine($"The world is ending in {x} days!");
                 Console.WriteLine("If it's any consolation you guessed correctly!");
-
             }
 
             Console.WriteLine("We have only {0} days left to Armegeddon", x);
@@ -42,7 +39,6 @@ namespace Random_Number_Generator
             int Counter = 0;
             while (InputsNumericValue2 != x && Counter < 5)
             {
-
                 String UserInput2 = Console.ReadLine();
                 //Code below trys to convert users 2nd guess to an integer                
                 Result2 = int.TryParse(UserInput2, out InputsNumericValue2);
