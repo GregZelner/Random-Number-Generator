@@ -6,8 +6,6 @@ namespace Random_Number_Generator
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("Hello World!");
-            //int TestInt = 5;
 
 
             Random RandomNumber = new Random();
