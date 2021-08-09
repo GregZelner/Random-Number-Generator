@@ -21,7 +21,7 @@ namespace Guessing_Game
             //Console.WriteLine("String is a numeric representation: " + Result);
             while (InputsNumericValue != RandomNumber && Counter > 0)
             {
-                Console.WriteLine("Can you guess How many days we have left to live?");
+                Console.WriteLine("Can you guess How many days we have left before the world ends?");
                 String UserInput = Console.ReadLine();
                 Result = int.TryParse(UserInput, out InputsNumericValue);
 
