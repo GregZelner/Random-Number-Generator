@@ -21,7 +21,7 @@ namespace Guessing_Game
             //Console.WriteLine("String is a numeric representation: " + Result);
             while (InputsNumericValue != RandomNumber && Counter > 0)
             {
-                Console.WriteLine("Can you guess How many days we have left?");
+                Console.WriteLine("Can you guess How many days we have left to live?");
                 String UserInput = Console.ReadLine();
                 Result = int.TryParse(UserInput, out InputsNumericValue);
 
@@ -29,7 +29,9 @@ namespace Guessing_Game
                 {
                     Console.WriteLine($"You wrote {UserInput} which is not a number.");
                     Console.WriteLine($"You have {Counter} guesses left");
-                    Console.WriteLine("Please Try Again");
+                    Console.WriteLine();
+                    Console.WriteLine("Please Press any Key to continue and Try Again");
+                    Console.ReadKey();
                     Counter--;
 
                 }
@@ -47,16 +49,26 @@ namespace Guessing_Game
 
                 //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...                 //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...
                 //I'm thinking to make an if statement inside the else where instead of it saying which is wrong,
-                // it'll say "is too low" or "is too high"
+                // it'll say "is too low" or "is too high"... but also what happens if they guess a string again?
+                //
                 if (Result == true && InputsNumericValue != RandomNumber)
                 {
                     Console.WriteLine($"We have only {RandomNumber} days left to Armegeddon");
                     Console.WriteLine($"ONLY {RandomNumber} days and you guessed {UserInput} which is wrong");
                     Console.WriteLine($"You have {Counter} guesses left");
+                    Console.WriteLine("");
                     Console.WriteLine("Quit Wasting time and Guess Again!");
+                    Console.WriteLine("Please Press any Key to continue and Try Again");
+                    Console.ReadKey();
                     Counter--;
                 }
 
+                if(Counter !> 0)
+                { Console.WriteLine("Game Over");
+                    Console.WriteLine("Play Again?");
+                    Console.ReadLine();
+
+                }
             }
             //I want it to clear all text and say Thanks for playing.. Play again? (Y/N)
             Console.WriteLine("Thanks for playing!");
