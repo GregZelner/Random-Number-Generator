@@ -33,42 +33,48 @@ namespace Guessing_Game
                     Console.WriteLine("Please Press any Key to continue and Try Again");
                     Console.ReadKey();
                     Counter--;
-
+                }
+                else
+                {   //this happens when it is a valid number
+                    if (InputsNumericValue == RandomNumber)
+                    {
+                        Console.WriteLine("Congratulations!");
+                        Console.WriteLine($"The world is ending in {RandomNumber} days!");
+                        Console.WriteLine("If it's any consolation you guessed correctly!");
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadKey();
+                        break;
+                    }
+                    else
+                    {
+                        //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...                 //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...
+                        //I'm thinking to make an if statement inside the else where instead of it saying which is wrong,
+                        // it'll say "is too low" or "is too high"... but also what happens if they guess a string again?
+                        //
+                        Console.WriteLine($"We have only {RandomNumber} days left to Armegeddon");
+                        Console.WriteLine($"ONLY {RandomNumber} days and you guessed {UserInput} which is wrong");
+                        Console.WriteLine($"You have {Counter} guesses left");
+                        Console.WriteLine("");
+                        Console.WriteLine("Quit Wasting time and Guess Again!");
+                        Console.WriteLine("Please Press any Key to continue and Try Again");
+                        Console.ReadKey();
+                        Counter--;
+                    }
                 }
 
 
-                if (Result == true && InputsNumericValue == RandomNumber)
+                if (Counter <= 0)
                 {
-                    Console.WriteLine("Congratulations!");
-                    Console.WriteLine($"The world is ending in {RandomNumber} days!");
-                    Console.WriteLine("If it's any consolation you guessed correctly!");
-                    Console.WriteLine("Press any key to continue");
-                    Console.ReadKey();
-                    break;
-                }
-
-                //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...                 //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...
-                //I'm thinking to make an if statement inside the else where instead of it saying which is wrong,
-                // it'll say "is too low" or "is too high"... but also what happens if they guess a string again?
-                //
-                if (Result == true && InputsNumericValue != RandomNumber)
-                {
-                    Console.WriteLine($"We have only {RandomNumber} days left to Armegeddon");
-                    Console.WriteLine($"ONLY {RandomNumber} days and you guessed {UserInput} which is wrong");
-                    Console.WriteLine($"You have {Counter} guesses left");
-                    Console.WriteLine("");
-                    Console.WriteLine("Quit Wasting time and Guess Again!");
-                    Console.WriteLine("Please Press any Key to continue and Try Again");
-                    Console.ReadKey();
-                    Counter--;
-                }
-
-                if(Counter !> 0)
-                { Console.WriteLine("Game Over");
+                    Console.WriteLine("Game Over");
                     Console.WriteLine("Play Again?");
                     Console.ReadLine();
-
+                    //if yes:
+                        //Counter = 10;
+                    //no:
+                    //  break
                 }
+
+                Console.Clear();
             }
             //I want it to clear all text and say Thanks for playing.. Play again? (Y/N)
             Console.WriteLine("Thanks for playing!");
@@ -79,6 +85,7 @@ namespace Guessing_Game
             //if ("Y" == start over )
             //        {
             //}
+ 
 
             //        else
             //{
