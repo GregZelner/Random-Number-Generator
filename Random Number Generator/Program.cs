@@ -49,29 +49,50 @@ namespace Guessing_Game
                     {
                         UI.GuessAgain(RandomNumber, UserInputIntegerValue, Counter);
                         Counter--;
+                        continue;
                     }
                 }
 
-
+                //Game Over
                 if (Counter <= 0)
                 {
+                    Console.WriteLine("You are out of guesses");
                     Console.WriteLine("Game Over");
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
+                    Console.Clear();
                     Console.WriteLine("Play Again?");
-                    Console.ReadLine();
-                    //if yes:
-                    //Counter = 10;
-                    //no:
-                    //  break
+                    Console.WriteLine("Type Y/N to continue");
+                    string UserAnswer= Console.ReadLine();
+                    Console.Clear();
+
+                    //Reset Counter and start game loop over
+                    if (UserAnswer == "y")
+                    {
+                        Counter = 10;
+                        continue;
+                    }
+
+                    //End Game
+                    else
+                    {
+                        Console.WriteLine("Thanks for Playing!");
+                        Console.WriteLine("If you liked my game please donate to my programmers education fund!");
+                        Console.WriteLine("Press any key to continue");
+                        Console.ReadKey();
+                        break;
+                    }
+                   
                 }
 
                 Console.Clear();
             }
             //I want it to clear all text and say Thanks for playing.. Play again? (Y/N)
-            Console.WriteLine("Thanks for playing!");
-            Console.WriteLine();
-            Console.WriteLine("Do you want to play again?");
-            Console.WriteLine("Y/N");
-            Console.ReadLine();
+            //Console.WriteLine("Thanks for playing!");
+            //Console.WriteLine();
+            //Console.WriteLine("Do you want to play again?");
+            //Console.WriteLine("Y/N");
+            //Console.ReadLine();
             //if ("Y" == start over )
             //        {
             //}

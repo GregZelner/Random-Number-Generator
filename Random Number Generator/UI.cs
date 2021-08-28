@@ -45,6 +45,7 @@ namespace Guessing_Game
             Console.WriteLine("Quit Wasting time and Guess Again!");
             Console.WriteLine("Please Press any Key to continue and Try Again");
             Console.ReadKey();
+            Console.Clear();
         }
 
     }
