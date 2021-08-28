@@ -6,43 +6,39 @@ namespace Guessing_Game
     {
         static void Main(string[] args)
         {
+                //Create Random Number
             Random Rng = new Random();
             int RandomNumber = Rng.Next(0, 100);
 
 
-            //The code below will test UserInput to see if what was typed can be converted to an integer
-            //First the Bool and Int variables have to be created, so I create a variable name result and a variable named InputsNumericValue
-            //TryParse has two outputs a boolean value ie T/F and a numeric value.
-
+                //Define Variables to be used
             bool Result;
-            int InputsNumericValue = -1;
+            int UserInputIntegerValue = -1;
             int Counter = 10;
 
-            //Console.WriteLine("String is a numeric representation: " + Result);
-            while (InputsNumericValue != RandomNumber && Counter > 0)
+                //Game Loop
+            while (UserInputIntegerValue != RandomNumber && Counter > 0)
             {
-                Console.WriteLine("Can you guess How many days we have left before the world ends?");
-                String UserInput = Console.ReadLine();
-                Result = int.TryParse(UserInput, out InputsNumericValue);
+                String UserInput = UI.GetUserGuess();
+                Result = int.TryParse(UserInput, out UserInputIntegerValue);
 
                 if (Result == false)
                 {
-                    Console.WriteLine($"You wrote {UserInput} which is not a number.");
-                    Console.WriteLine($"You have {Counter} guesses left");
-                    Console.WriteLine();
-                    Console.WriteLine("Please Press any Key to continue and Try Again");
-                    Console.ReadKey();
+                    UI.InvalidInputScreen(UserInput, Counter);
                     Counter--;
+                    continue;
                 }
                 else
                 {   //this happens when it is a valid number
-                    if (InputsNumericValue == RandomNumber)
+                    if (UserInputIntegerValue == RandomNumber)
                     {
-                        Console.WriteLine("Congratulations!");
-                        Console.WriteLine($"The world is ending in {RandomNumber} days!");
-                        Console.WriteLine("If it's any consolation you guessed correctly!");
-                        Console.WriteLine("Press any key to continue");
-                        Console.ReadKey();
+                        UI.YouWin(RandomNumber);
+
+                        //Console.WriteLine("Congratulations!");
+                        //Console.WriteLine($"The world is ending in {RandomNumber} days!");
+                        //Console.WriteLine("If it's any consolation you guessed correctly!");
+                        //Console.WriteLine("Press any key to continue");
+                        //Console.ReadKey();
                         break;
                     }
                     else
@@ -50,7 +46,8 @@ namespace Guessing_Game
                         //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...                 //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...
                         //I'm thinking to make an if statement inside the else where instead of it saying which is wrong,
                         // it'll say "is too low" or "is too high"... but also what happens if they guess a string again?
-                        //
+                        
+
                         Console.WriteLine($"We have only {RandomNumber} days left to Armegeddon");
                         Console.WriteLine($"ONLY {RandomNumber} days and you guessed {UserInput} which is wrong");
                         Console.WriteLine($"You have {Counter} guesses left");
@@ -69,7 +66,7 @@ namespace Guessing_Game
                     Console.WriteLine("Play Again?");
                     Console.ReadLine();
                     //if yes:
-                        //Counter = 10;
+                    //Counter = 10;
                     //no:
                     //  break
                 }
@@ -85,7 +82,7 @@ namespace Guessing_Game
             //if ("Y" == start over )
             //        {
             //}
- 
+
 
             //        else
             //{
