@@ -35,6 +35,17 @@ namespace Guessing_Game
             Console.ReadKey();
             Console.Clear();
         }
+        
+        public static void GuessAgain(int RandomNumber, int UserInput, int Counter)
+        {
+            Console.WriteLine($"We have only {RandomNumber} days left to Armegeddon");
+            Console.WriteLine($"ONLY {RandomNumber} days and you guessed {UserInput} which is wrong");
+            Console.WriteLine($"You have {Counter} guesses left");
+            Console.WriteLine("");
+            Console.WriteLine("Quit Wasting time and Guess Again!");
+            Console.WriteLine("Please Press any Key to continue and Try Again");
+            Console.ReadKey();
+        }
 
     }
 }

@@ -6,17 +6,17 @@ namespace Guessing_Game
     {
         static void Main(string[] args)
         {
-                //Create Random Number
+            //Create Random Number
             Random Rng = new Random();
             int RandomNumber = Rng.Next(0, 100);
 
 
-                //Define Variables to be used
+            //Define Variables to be used
             bool Result;
             int UserInputIntegerValue = -1;
             int Counter = 10;
 
-                //Game Loop
+            //Game Loop
             while (UserInputIntegerValue != RandomNumber && Counter > 0)
             {
                 String UserInput = UI.GetUserGuess();
@@ -33,28 +33,21 @@ namespace Guessing_Game
                     if (UserInputIntegerValue == RandomNumber)
                     {
                         UI.YouWin(RandomNumber);
-
+                        break;
                         //Console.WriteLine("Congratulations!");
                         //Console.WriteLine($"The world is ending in {RandomNumber} days!");
                         //Console.WriteLine("If it's any consolation you guessed correctly!");
                         //Console.WriteLine("Press any key to continue");
                         //Console.ReadKey();
-                        break;
+
                     }
+
+                    //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...                 //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...
+                    //I'm thinking to make an if statement inside the else where instead of it saying which is wrong,
+                    // it'll say "is too low" or "is too high"... but also what happens if they guess a string again?
                     else
                     {
-                        //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...                 //Right here I'd like to add a guess too low/ too high check but else statements dont have this option...
-                        //I'm thinking to make an if statement inside the else where instead of it saying which is wrong,
-                        // it'll say "is too low" or "is too high"... but also what happens if they guess a string again?
-                        
-
-                        Console.WriteLine($"We have only {RandomNumber} days left to Armegeddon");
-                        Console.WriteLine($"ONLY {RandomNumber} days and you guessed {UserInput} which is wrong");
-                        Console.WriteLine($"You have {Counter} guesses left");
-                        Console.WriteLine("");
-                        Console.WriteLine("Quit Wasting time and Guess Again!");
-                        Console.WriteLine("Please Press any Key to continue and Try Again");
-                        Console.ReadKey();
+                        UI.GuessAgain(RandomNumber, UserInputIntegerValue, Counter);
                         Counter--;
                     }
                 }
