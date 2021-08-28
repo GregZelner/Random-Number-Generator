@@ -53,18 +53,11 @@ namespace Guessing_Game
                     }
                 }
 
-                //Game Over
+                //Play Again
                 if (Counter <= 0)
                 {
-                    Console.WriteLine("You are out of guesses");
-                    Console.WriteLine("Game Over");
-                    Console.WriteLine("Press any key to continue");
-                    Console.ReadKey();
-                    Console.Clear();
-                    Console.WriteLine("Play Again?");
-                    Console.WriteLine("Type Y/N to continue");
-                    string UserAnswer= Console.ReadLine();
-                    Console.Clear();
+                    UI.PlayAgain();
+                    string UserAnswer = "";
 
                     //Reset Counter and start game loop over
                     if (UserAnswer == "y")
@@ -76,13 +69,10 @@ namespace Guessing_Game
                     //End Game
                     else
                     {
-                        Console.WriteLine("Thanks for Playing!");
-                        Console.WriteLine("If you liked my game please donate to my programmers education fund!");
-                        Console.WriteLine("Press any key to continue");
-                        Console.ReadKey();
+                        UI.EndGame();
                         break;
                     }
-                   
+
                 }
 
                 Console.Clear();

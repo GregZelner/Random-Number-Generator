@@ -35,7 +35,7 @@ namespace Guessing_Game
             Console.ReadKey();
             Console.Clear();
         }
-        
+
         public static void GuessAgain(int RandomNumber, int UserInput, int Counter)
         {
             Console.WriteLine($"We have only {RandomNumber} days left to Armegeddon");
@@ -46,6 +46,27 @@ namespace Guessing_Game
             Console.WriteLine("Please Press any Key to continue and Try Again");
             Console.ReadKey();
             Console.Clear();
+        }
+
+        public static string PlayAgain()
+        {
+            Console.WriteLine("Game Over");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("Play Again?");
+            Console.WriteLine("Type Y/N to continue");
+            string UserAnswer = Console.ReadLine();
+            return UserAnswer;
+            Console.Clear();
+        }
+
+        public static void EndGame()
+        {
+            Console.WriteLine("Thanks for Playing!");
+            Console.WriteLine("If you liked my game please donate to my programmers education fund!");
+            Console.WriteLine("Press any key to continue");
+            Console.ReadKey();
         }
 
     }
