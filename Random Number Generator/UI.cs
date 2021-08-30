@@ -57,9 +57,11 @@ namespace Guessing_Game
             Console.Clear();
             Console.WriteLine("Play Again?");
             Console.WriteLine("Type Y/N to continue");
+
             string UserAnswer = Console.ReadLine();
-            return UserAnswer;
             Console.Clear();
+            return UserAnswer;
+            
         }
 
         public static void EndGame()

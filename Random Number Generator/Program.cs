@@ -21,12 +21,11 @@ namespace Guessing_Game
             {
                 //Play Again
                 if (Counter <= 0)
-                {
-                    UI.PlayAgain();
-                    string UserAnswer = "";
-
+                {                   
+                    string UserAnswer = UI.PlayAgain().ToLower(); //just inerested in lowecase value for easier comparison
+                    
                     //Reset Counter and start game loop over
-                    if (UserAnswer == "y")
+                    if (UserAnswer == "y" || UserAnswer  == "yes")  //Look at switch/case
                     {
                         Counter = 10;
                         continue;
@@ -52,7 +51,7 @@ namespace Guessing_Game
                 {   //this happens when it is a valid number
                     if (UserInputIntegerValue == RandomNumber)
                     {
-                        UI.YouWin(RandomNumber);
+                        UI.YouWin(RandomNumber);                      
                         break;
                     }
                     else
@@ -65,7 +64,6 @@ namespace Guessing_Game
                         continue;
                     }
                 }
-
             }
             //you end up here if you break out of the main loop
 
