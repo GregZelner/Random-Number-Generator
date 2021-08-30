@@ -20,6 +20,7 @@ namespace Guessing_Game
 
         public static string GetUserGuess()
         {
+            Console.Clear();
             Console.WriteLine("Can you guess How many days we have left before the world ends?");
             string UserGuess = Console.ReadLine();
             return UserGuess;
